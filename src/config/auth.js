@@ -1,9 +1,7 @@
-// src/config/auth.ts
-import { config } from 'dotenv';
+// src/config/auth.js
+require('dotenv').config();
 
-config();
-
-export default {
+module.exports = {
   jwt: {
     secret: process.env.JWT_SECRET || 'default_secret_key_change_this',
     expiresIn: process.env.JWT_EXPIRATION || '24h',
@@ -26,11 +24,8 @@ export default {
 
   // Token validation options
   tokenValidation: {
-    // Whether to validate the token's issuer
     validateIssuer: false,
-    // Whether to validate the token's audience
     validateAudience: false,
-    // Whether to validate the token's expiration
     validateExpiresIn: true,
   },
 };
